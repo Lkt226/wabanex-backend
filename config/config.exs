@@ -10,6 +10,10 @@ use Mix.Config
 config :wabanexBack,
   ecto_repos: [WabanexBack.Repo]
 
+config :wabanexBack,WabanexBack.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :wabanexBack, WabanexBackWeb.Endpoint,
   url: [host: "localhost"],
