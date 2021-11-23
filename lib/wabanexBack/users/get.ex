@@ -6,7 +6,6 @@ defmodule WabanexBack.Users.Get do
     id
     |> UUID.cast()
     |> handle_response()
-
   end
 
   defp handle_response(:error), do: {:error, "UUID invalida"}
