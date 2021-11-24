@@ -1,0 +1,28 @@
+defmodule WabanexBack.Exercises do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  alias WabanexBack.Trainning
+
+  @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
+
+  @fields [:name, :protocol_description, :repetitions, :youtube_video_url, :trainnings_id]
+
+  schema "exercises" do
+    field :name, :string
+    field :protocol_description, :string
+    field :repetitions, :string
+    field :youtube_video_url, :string
+
+    belongs_to :trainnings, Trainning
+
+    timestamps()
+  end
+
+  def changeset(exercises, params) do
+    exercises
+    |> cast(params, @fields)
+    |> validate_required(@fields)
+  end
+end
